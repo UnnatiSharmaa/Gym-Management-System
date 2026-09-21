@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Directory &amp; Management | PulseFit Gym</title>
+  <meta name="description" content="Centralized member database: search enrollments, track plan expirations, view assigned coaches, and register new gym members.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-topbar">
+    <div class="container topbar-content">
+      <div class="topbar-left">
+        <span class="topbar-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Main City Fitness Center Hub
+        </span>
+        <span class="topbar-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Database Synchronization: Live | Total Records: 1,280 Members
+        </span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-badge" style="background-color: var(--success);">ADMIN DESK</span>
+        <a href="admin-dashboard.html" style="color: #f8fafc; font-size: 0.8rem;">&larr; Return to Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Common Header & Navbar -->
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="brand-text">
+            PULSE<span>FIT</span>
+            <span class="brand-sub">Gym Management System</span>
+          </div>
+        </a>
+
+        <!-- Pure CSS Hamburger Toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+          <span class="hamburger-icon"></span>
+        </label>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About &amp; Facility</a>
+          <a href="memberships.html" class="nav-link">Plans &amp; Pricing</a>
+          <a href="trainers.html" class="nav-link">Trainers</a>
+          <a href="workouts.html" class="nav-link">Workouts &amp; Diet</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+
+          <!-- System Portals Dropdown -->
+          <div class="nav-dropdown">
+            <span class="nav-link dropdown-toggle active">
+              System Modules
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+            <div class="dropdown-menu">
+              <div class="dropdown-header">Staff &amp; Admin Tools</div>
+              <a href="admin-dashboard.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                Admin Dashboard
+              </a>
+              <a href="members-list.html" class="dropdown-item active">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                Member Directory
+              </a>
+              <a href="attendance.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                Attendance Tracker
+              </a>
+              <a href="billing.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+                Billing &amp; Invoices
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <a href="#add-member" class="btn btn-primary btn-sm">+ Enroll Member</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="banner-content">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="admin-dashboard.html">System Modules</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Member Directory</span>
+        </nav>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 class="banner-title">Member Management &amp; Directory</h1>
+            <p class="banner-desc">Review enrolled members, filter subscription statuses, view assigned trainers, and register new members.</p>
+          </div>
+          <a href="#add-member" class="btn btn-primary">+ Add New Member</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="page-wrapper">
+    <div class="container" style="margin-bottom: 5rem;">
+      
+      <!-- Filter Bar Component -->
+      <div class="filter-bar">
+        <div class="search-input-wrapper">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" class="form-control" placeholder="Search by Member ID, Name, or Phone...">
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <select class="form-select" style="width: auto; min-width: 170px;">
+            <option value="all">All Plans</option>
+            <option value="cardio">Cardio Starter</option>
+            <option value="strength">Strength Standard</option>
+            <option value="pro">Pro Athlete</option>
+            <option value="annual">Annual VIP</option>
+          </select>
+
+          <select class="form-select" style="width: auto; min-width: 150px;">
+            <option value="all">All Statuses</option>
+            <option value="active">Active Members</option>
+            <option value="expiring">Expiring Soon</option>
+            <option value="expired">Expired</option>
+          </select>
+
+          <button type="button" class="btn btn-outline" style="padding: 0.65rem 1rem;">Filter</button>
+        </div>
+      </div>
+
+      <!-- Member Records Table -->
+      <div class="table-responsive" style="margin-bottom: 3.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Member ID</th>
+              <th>Member Name &amp; Contact</th>
+              <th>Enrolled Plan</th>
+              <th>Join Date</th>
+              <th>Expiry Date</th>
+              <th>Status</th>
+              <th>Assigned Coach</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <!-- Member 1 -->
+            <tr>
+              <td><strong>PF-MEM-1042</strong></td>
+              <td>
+                <div class="member-cell">
+                  <div class="avatar avatar-orange">RS</div>
+                  <div>
+                    <span class="member-name">Rahul Sharma</span>
+                    <span class="member-email">+91 98721-00214</span>
+                  </div>
+                </div>
+              </td>
+              <td>Strength Standard</td>
+              <td>12 Jan 2026</td>
+              <td>12 Jul 2026</td>
+              <td><span class="badge badge-success"><span class="badge-dot"></span> Active</span></td>
+              <td>Vikramaditya R.</td>
+              <td>
+                <div class="action-btns">
+                  <a href="attendance.html" class="btn btn-sm btn-outline" title="Check Attendance">Log</a>
+                  <a href="billing.html" class="btn btn-sm btn-outline" title="View Invoices">Fee</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Member 2 -->
+            <tr>
+              <td><strong>PF-MEM-1039</strong></td>
+              <td>
+                <div class="member-cell">
+                  <div class="avatar avatar-blue">PP</div>
+                  <div>
+                    <span class="member-name">Priya Patel</span>
+                    <span class="member-email">+91 94125-66781</span>
+                  </div>
+                </div>
+              </td>
+              <td>Pro Athlete Monthly</td>
+              <td>05 Feb 2026</td>
+              <td>05 Apr 2026</td>
+              <td><span class="badge badge-success"><span class="badge-dot"></span> Active</span></td>
+              <td>Ananya Deshmukh</td>
+              <td>
+                <div class="action-btns">
+                  <a href="attendance.html" class="btn btn-sm btn-outline">Log</a>
+                  <a href="billing.html" class="btn btn-sm btn-outline">Fee</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Member 3 -->
+            <tr>
+              <td><strong>PF-MEM-1038</strong></td>
+              <td>
+                <div class="member-cell">
+                  <div class="avatar avatar-emerald">AV</div>
+                  <div>
+                    <span class="member-name">Aman Verma</span>
+                    <span class="member-email">+91 88992-12401</span>
+                  </div>
+                </div>
+              </td>
+              <td>Cardio Starter</td>
+              <td>18 Feb 2026</td>
+              <td>21 Mar 2026</td>
+              <td><span class="badge badge-warning"><span class="badge-dot"></span> Expiring in 4d</span></td>
+              <td>Rohan Kapoor</td>
+              <td>
+                <div class="action-btns">
+                  <a href="billing.html" class="btn btn-sm btn-primary" style="padding: 0.3rem 0.6rem;">Renew</a>
+                  <a href="attendance.html" class="btn btn-sm btn-outline">Log</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Member 4 -->
+            <tr>
+              <td><strong>PF-MEM-1025</strong></td>
+              <td>
+                <div class="member-cell">
+                  <div class="avatar avatar-purple">NG</div>
+                  <div>
+                    <span class="member-name">Neha Gupta</span>
+                    <span class="member-email">+91 70172-88129</span>
+                  </div>
+                </div>
+              </td>
+              <td>Cardio Starter</td>
+              <td>15 Jan 2026</td>
+              <td>15 Feb 2026</td>
+              <td><span class="badge badge-danger"><span class="badge-dot"></span> Expired</span></td>
+              <td>Floor Trainer</td>
+              <td>
+                <div class="action-btns">
+                  <a href="billing.html" class="btn btn-sm btn-primary" style="padding: 0.3rem 0.6rem;">Renew</a>
+                  <a href="contact.html" class="btn btn-sm btn-outline">Call</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Member 5 -->
+            <tr>
+              <td><strong>PF-MEM-1011</strong></td>
+              <td>
+                <div class="member-cell">
+                  <div class="avatar avatar-orange">SS</div>
+                  <div>
+                    <span class="member-name">Siddharth Sen</span>
+                    <span class="member-email">+91 99881-44332</span>
+                  </div>
+                </div>
+              </td>
+              <td>Annual Elite VIP</td>
+              <td>01 Jan 2026</td>
+              <td>31 Dec 2026</td>
+              <td><span class="badge badge-success"><span class="badge-dot"></span> Active VIP</span></td>
+              <td>Vikramaditya R.</td>
+              <td>
+                <div class="action-btns">
+                  <a href="attendance.html" class="btn btn-sm btn-outline">Log</a>
+                  <a href="billing.html" class="btn btn-sm btn-outline">Fee</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Member 6 -->
+            <tr>
+              <td><strong>PF-MEM-1008</strong></td>
+              <td>
+                <div class="member-cell">
+                  <div class="avatar avatar-blue">DR</div>
+                  <div>
+                    <span class="member-name">Deepika Rawat</span>
+                    <span class="member-email">+91 91402-33411</span>
+                  </div>
+                </div>
+              </td>
+              <td>Pro Athlete Monthly</td>
+              <td>20 Nov 2025</td>
+              <td>20 May 2026</td>
+              <td><span class="badge badge-success"><span class="badge-dot"></span> Active</span></td>
+              <td>Meera Singhania</td>
+              <td>
+                <div class="action-btns">
+                  <a href="attendance.html" class="btn btn-sm btn-outline">Log</a>
+                  <a href="billing.html" class="btn btn-sm btn-outline">Fee</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Member 7 -->
+            <tr>
+              <td><strong>PF-MEM-0994</strong></td>
+              <td>
+                <div class="member-cell">
+                  <div class="avatar avatar-emerald">TK</div>
+                  <div>
+                    <span class="member-name">Tarun Kumar</span>
+                    <span class="member-email">+91 96340-99812</span>
+                  </div>
+                </div>
+              </td>
+              <td>Strength Standard</td>
+              <td>10 Oct 2025</td>
+              <td>10 Apr 2026</td>
+              <td><span class="badge badge-success"><span class="badge-dot"></span> Active</span></td>
+              <td>Arjun Negi</td>
+              <td>
+                <div class="action-btns">
+                  <a href="attendance.html" class="btn btn-sm btn-outline">Log</a>
+                  <a href="billing.html" class="btn btn-sm btn-outline">Fee</a>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Form Section: Add New Member (Anchor: #add-member) -->
+      <div id="add-member" class="form-card" style="border-top: 4px solid var(--primary);">
+        <div class="card-header" style="margin-bottom: 1.5rem;">
+          <div>
+            <span class="badge badge-primary" style="margin-bottom: 0.35rem;">Registration Desk</span>
+            <h3 class="card-title">Enroll New Gym Member</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Create digital membership profile and generate registration invoice.</p>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Auto Member ID: <strong>PF-MEM-1043</strong></span>
+        </div>
+
+        <form action="#" method="get" onsubmit="return false;" class="form-grid">
+          
+          <div class="form-group">
+            <label for="reg-fname" class="form-label form-label-req">First Name</label>
+            <input type="text" id="reg-fname" class="form-control" placeholder="Member's first name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-lname" class="form-label form-label-req">Last Name</label>
+            <input type="text" id="reg-lname" class="form-control" placeholder="Member's last name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email" class="form-label form-label-req">Email Address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="member@gmail.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-phone" class="form-label form-label-req">Primary Contact Number</label>
+            <input type="tel" id="reg-phone" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-emergency" class="form-label">Emergency Contact Name &amp; Phone</label>
+            <input type="text" id="reg-emergency" class="form-control" placeholder="Guardian / Relative (+91 ...)">
+          </div>
+
+          <div class="form-group">
+            <label for="reg-gender" class="form-label">Gender</label>
+            <select id="reg-gender" class="form-select">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-plan" class="form-label form-label-req">Membership Package Tier</label>
+            <select id="reg-plan" class="form-select" required>
+              <option value="cardio">Cardio Starter (&#8377;1,499/mo)</option>
+              <option value="strength" selected>Strength Standard (&#8377;2,499/mo)</option>
+              <option value="pro">Pro Athlete Tier (&#8377;3,999/mo)</option>
+              <option value="annual">Annual VIP Pass (&#8377;24,999/yr)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-duration" class="form-label form-label-req">Subscription Tenure</label>
+            <select id="reg-duration" class="form-select" required>
+              <option value="1">1 Month</option>
+              <option value="3" selected>3 Months (Quarterly - 5% Off)</option>
+              <option value="6">6 Months (Half Yearly - 10% Off)</option>
+              <option value="12">12 Months (Annual - 20% Off)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-coach" class="form-label">Assign Personal Coach (Optional)</label>
+            <select id="reg-coach" class="form-select">
+              <option value="none">General Floor Trainer Supervision</option>
+              <option value="vikram">Vikramaditya Rathore (Strength)</option>
+              <option value="ananya">Ananya Deshmukh (CrossFit)</option>
+              <option value="rohan">Rohan Kapoor (Calisthenics)</option>
+              <option value="meera">Meera Singhania (Nutrition &amp; Yoga)</option>
+              <option value="arjun">Arjun Negi (Rehab)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-shift" class="form-label">Primary Training Shift</label>
+            <select id="reg-shift" class="form-select">
+              <option value="morning">Morning Shift (5:30 AM &ndash; 11:30 AM)</option>
+              <option value="evening" selected>Evening Peak (5:00 PM &ndash; 10:00 PM)</option>
+              <option value="anytime">All Day Unrestricted</option>
+            </select>
+          </div>
+
+          <div class="form-group col-span-2">
+            <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--secondary); cursor: pointer;">
+              <input type="checkbox" checked>
+              <strong>Assign Private Secure Locker # (Complimentary for 3+ months plans)</strong>
+            </label>
+          </div>
+
+          <div class="form-group col-span-2" style="margin-top: 1rem; display: flex; gap: 1rem;">
+            <button type="submit" class="btn btn-primary btn-lg">
+              Save Member &amp; Generate Invoice &rarr;
+            </button>
+            <button type="reset" class="btn btn-outline btn-lg">Clear Fields</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: white;">
+            <div class="brand-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="brand-text" style="color: white;">PULSE<span style="color: var(--primary);">FIT</span></div>
+          </div>
+          <p>An integrated Gym &amp; Fitness Center Management System automating enrollments, attendance tracking, trainer schedules, and fee invoices.</p>
+          <div class="academic-badge">Fitness Hub &bull; B.Tech CSE Mini Project</div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">&bull; Home</a></li>
+            <li><a href="about.html">&bull; About &amp; Facilities</a></li>
+            <li><a href="memberships.html">&bull; Membership Plans</a></li>
+            <li><a href="trainers.html">&bull; Trainers &amp; Coaches</a></li>
+            <li><a href="workouts.html">&bull; Workouts &amp; Diet</a></li>
+            <li><a href="contact.html">&bull; Contact &amp; Trial Pass</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Management Modules</h4>
+          <ul class="footer-links">
+            <li><a href="admin-dashboard.html">&bull; Admin Dashboard</a></li>
+            <li><a href="members-list.html">&bull; Member Directory</a></li>
+            <li><a href="attendance.html">&bull; Attendance Tracker</a></li>
+            <li><a href="billing.html">&bull; Billing &amp; Invoices</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Facility Hours</h4>
+          <div class="footer-hours-list">
+            <div class="footer-hours-item">
+              <span>Monday &ndash; Friday</span>
+              <span>5:30 AM &ndash; 10:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Saturday</span>
+              <span>6:00 AM &ndash; 9:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Sunday</span>
+              <span>6:00 AM &ndash; 2:00 PM</span>
+            </div>
+          </div>
+          <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #94a3b8;">
+            <strong style="color: #f1f5f9;">Center Helpdesk:</strong> +91 (0565) 241-7000<br>
+            <strong style="color: #f1f5f9;">Email:</strong> helpdesk@pulsefit-center.in
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <div>&copy; 2026 PulseFit Gym &amp; Fitness Center Management System. All rights reserved.</div>
+        <div>Designed for B.Tech CSE Mini Project Evaluation</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
