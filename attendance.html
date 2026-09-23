@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Tracking &amp; Punch Desk | PulseFit Gym</title>
+  <meta name="description" content="Digital gym attendance log: desk check-in / check-out punch clock, daily member floor roster, and monthly workout consistency calendar.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-topbar">
+    <div class="container topbar-content">
+      <div class="topbar-left">
+        <span class="topbar-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Main City Fitness Center Hub
+        </span>
+        <span class="topbar-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Live Punch Desk: Station #01 Connected | Session Date: 17 Mar 2026
+        </span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-badge" style="background-color: var(--accent);">ATTENDANCE DESK</span>
+        <a href="admin-dashboard.html" style="color: #f8fafc; font-size: 0.8rem;">&larr; Admin Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Common Header & Navbar -->
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="brand-text">
+            PULSE<span>FIT</span>
+            <span class="brand-sub">Gym Management System</span>
+          </div>
+        </a>
+
+        <!-- Pure CSS Hamburger Toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+          <span class="hamburger-icon"></span>
+        </label>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About &amp; Facility</a>
+          <a href="memberships.html" class="nav-link">Plans &amp; Pricing</a>
+          <a href="trainers.html" class="nav-link">Trainers</a>
+          <a href="workouts.html" class="nav-link">Workouts &amp; Diet</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+
+          <!-- System Portals Dropdown -->
+          <div class="nav-dropdown">
+            <span class="nav-link dropdown-toggle active">
+              System Modules
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+            <div class="dropdown-menu">
+              <div class="dropdown-header">Staff &amp; Admin Tools</div>
+              <a href="admin-dashboard.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                Admin Dashboard
+              </a>
+              <a href="members-list.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                Member Directory
+              </a>
+              <a href="attendance.html" class="dropdown-item active">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                Attendance Tracker
+              </a>
+              <a href="billing.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+                Billing &amp; Invoices
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <a href="#punch" class="btn btn-primary btn-sm">Punch Member In</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="banner-content">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="admin-dashboard.html">System Modules</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Attendance Tracker</span>
+        </nav>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 class="banner-title">Daily Attendance &amp; Punch Clock</h1>
+            <p class="banner-desc">Real-time gym floor logs, check-in punch desk, and monthly workout consistency tracking.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <span class="badge badge-success" style="font-size: 0.85rem; padding: 0.5rem 1rem;">248 Checked In Today</span>
+            <span class="badge badge-neutral" style="font-size: 0.85rem; padding: 0.5rem 1rem;">72 Active On Floor Now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="page-wrapper">
+    <div class="container" style="margin-bottom: 5rem;">
+      
+      <!-- Quick Punch Check-in Form Card (#punch) -->
+      <div id="punch" class="form-card" style="margin-bottom: 3rem; border-top: 4px solid var(--accent);">
+        <div class="card-header">
+          <div>
+            <span class="badge badge-accent" style="margin-bottom: 0.25rem;">Frontdesk Terminal</span>
+            <h3 class="card-title">Check-In / Punch Member In</h3>
+          </div>
+          <span style="font-size: 0.8125rem; color: var(--text-muted);">Current Time: <strong>02:30 PM (Evening Shift)</strong></span>
+        </div>
+
+        <form action="#" method="get" onsubmit="return false;" class="form-grid-3">
+          
+          <div class="form-group">
+            <label for="punch-id" class="form-label form-label-req">Member ID / Barcode</label>
+            <input type="text" id="punch-id" class="form-control" placeholder="e.g. PF-MEM-1042" required>
+            <span class="form-help">Enter 7-digit member ID or scan key fob badge.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="punch-zone" class="form-label">Destination Workout Zone</label>
+            <select id="punch-zone" class="form-select">
+              <option value="cardio">Cardio &amp; Stamina Deck</option>
+              <option value="weights" selected>Heavy Free Weights Arena</option>
+              <option value="crossfit">CrossFit Turf &amp; Sled Track</option>
+              <option value="sauna">Steam &amp; Sauna Recovery</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="punch-locker" class="form-label">Assign Daily Locker #</label>
+            <input type="text" id="punch-locker" class="form-control" placeholder="e.g. L-42 (Optional)">
+          </div>
+
+          <div class="form-group col-span-full" style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem;">
+            <button type="submit" class="btn btn-primary btn-lg">
+              Punch In Member &rarr;
+            </button>
+            <button type="button" class="btn btn-outline btn-lg">
+              Check-Out Member
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Live Floor Attendance Log Roster -->
+      <div style="margin-bottom: 4rem;">
+        <div class="card-header" style="border-bottom: none; margin-bottom: 0.75rem;">
+          <div>
+            <h3 class="card-title">Live Floor Attendance Roster (17 Mar 2026)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Daily logs showing arrival, departure timestamps, and training duration.</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <span class="badge badge-success">Live Session Active</span>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Member Profile</th>
+                <th>Enrolled Tier</th>
+                <th>Check-In Time</th>
+                <th>Check-Out Time</th>
+                <th>Duration</th>
+                <th>Zone / Locker</th>
+                <th>Status</th>
+                <th>Desk Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>
+                  <div class="member-cell">
+                    <div class="avatar avatar-orange">RS</div>
+                    <div>
+                      <span class="member-name">Rahul Sharma</span>
+                      <span class="member-email">PF-MEM-1042</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Strength Standard</td>
+                <td>01:45 PM</td>
+                <td>--:-- PM</td>
+                <td><strong>45 mins</strong></td>
+                <td>Free Weights (L-12)</td>
+                <td><span class="badge badge-success"><span class="badge-dot"></span> On Floor</span></td>
+                <td><button type="button" class="btn btn-sm btn-outline">Check-Out</button></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="member-cell">
+                    <div class="avatar avatar-blue">PP</div>
+                    <div>
+                      <span class="member-name">Priya Patel</span>
+                      <span class="member-email">PF-MEM-1039</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Pro Athlete Monthly</td>
+                <td>01:10 PM</td>
+                <td>--:-- PM</td>
+                <td><strong>1 hr 20m</strong></td>
+                <td>CrossFit Turf (L-08)</td>
+                <td><span class="badge badge-success"><span class="badge-dot"></span> On Floor</span></td>
+                <td><button type="button" class="btn btn-sm btn-outline">Check-Out</button></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="member-cell">
+                    <div class="avatar avatar-emerald">AV</div>
+                    <div>
+                      <span class="member-name">Aman Verma</span>
+                      <span class="member-email">PF-MEM-1038</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Cardio Starter</td>
+                <td>11:30 AM</td>
+                <td>12:45 PM</td>
+                <td>1 hr 15m</td>
+                <td>Cardio Deck (L-19)</td>
+                <td><span class="badge badge-neutral">Completed</span></td>
+                <td><span style="font-size: 0.8rem; color: var(--text-muted);">&#10003; Logged Out</span></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="member-cell">
+                    <div class="avatar avatar-orange">SS</div>
+                    <div>
+                      <span class="member-name">Siddharth Sen</span>
+                      <span class="member-email">PF-MEM-1011</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Annual Elite VIP</td>
+                <td>06:30 AM</td>
+                <td>08:15 AM</td>
+                <td>1 hr 45m</td>
+                <td>Sauna &amp; Weights (VIP-02)</td>
+                <td><span class="badge badge-neutral">Completed</span></td>
+                <td><span style="font-size: 0.8rem; color: var(--text-muted);">&#10003; Logged Out</span></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="member-cell">
+                    <div class="avatar avatar-blue">DR</div>
+                    <div>
+                      <span class="member-name">Deepika Rawat</span>
+                      <span class="member-email">PF-MEM-1008</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Pro Athlete Monthly</td>
+                <td>07:00 AM</td>
+                <td>08:20 AM</td>
+                <td>1 hr 20m</td>
+                <td>Functional Turf (L-24)</td>
+                <td><span class="badge badge-neutral">Completed</span></td>
+                <td><span style="font-size: 0.8rem; color: var(--text-muted);">&#10003; Logged Out</span></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="member-cell">
+                    <div class="avatar avatar-emerald">TK</div>
+                    <div>
+                      <span class="member-name">Tarun Kumar</span>
+                      <span class="member-email">PF-MEM-0994</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Strength Standard</td>
+                <td>06:00 AM</td>
+                <td>07:15 AM</td>
+                <td>1 hr 15m</td>
+                <td>Free Weights Arena</td>
+                <td><span class="badge badge-neutral">Completed</span></td>
+                <td><span style="font-size: 0.8rem; color: var(--text-muted);">&#10003; Logged Out</span></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Monthly Member Attendance Consistency Calendar -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">Monthly Workout Consistency (Sample Member: Rahul Sharma)</h3>
+            <p style="font-size: 0.8125rem; color: var(--text-muted);">March 2026 check-in calendar &bull; 86% Monthly Goal Achieved.</p>
+          </div>
+          <div style="display: flex; gap: 1rem; font-size: 0.8125rem;">
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 2px; background-color: var(--success);"></span> Present</span>
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 2px; background-color: #f1f5f9; border: 1px solid var(--border-color);"></span> Rest Day</span>
+            <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span style="width: 10px; height: 10px; border-radius: 2px; background-color: var(--danger);"></span> Absent</span>
+          </div>
+        </div>
+
+        <!-- 7-column calendar grid -->
+        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; text-align: center; font-weight: 700; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+          <div>Sun</div>
+        </div>
+
+        <div class="attendance-grid">
+          <!-- Week 1 -->
+          <div class="attendance-day present"><span class="day-number">1</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">2</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">3</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">4</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">5</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">6</span><span class="day-status">Present</span></div>
+          <div class="attendance-day rest"><span class="day-number">7</span><span class="day-status">Rest</span></div>
+
+          <!-- Week 2 -->
+          <div class="attendance-day present"><span class="day-number">8</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">9</span><span class="day-status">Present</span></div>
+          <div class="attendance-day absent"><span class="day-number">10</span><span class="day-status">Missed</span></div>
+          <div class="attendance-day present"><span class="day-number">11</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">12</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">13</span><span class="day-status">Present</span></div>
+          <div class="attendance-day rest"><span class="day-number">14</span><span class="day-status">Rest</span></div>
+
+          <!-- Week 3 -->
+          <div class="attendance-day present"><span class="day-number">15</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present"><span class="day-number">16</span><span class="day-status">Present</span></div>
+          <div class="attendance-day present" style="box-shadow: 0 0 0 2px var(--primary);"><span class="day-number">17</span><span class="day-status">Today</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">18</span><span class="day-status">--</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">19</span><span class="day-status">--</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">20</span><span class="day-status">--</span></div>
+          <div class="attendance-day rest"><span class="day-number">21</span><span class="day-status">Rest</span></div>
+
+          <!-- Week 4 -->
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">22</span><span class="day-status">--</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">23</span><span class="day-status">--</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">24</span><span class="day-status">--</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">25</span><span class="day-status">--</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">26</span><span class="day-status">--</span></div>
+          <div class="attendance-day" style="background-color: #ffffff;"><span class="day-number">27</span><span class="day-status">--</span></div>
+          <div class="attendance-day rest"><span class="day-number">28</span><span class="day-status">Rest</span></div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.875rem;">
+          <span>Active Streak: <strong style="color: var(--success);">7 Days Consecutive</strong></span>
+          <span>Total Workouts Logged in March: <strong>14 Sessions</strong></span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: white;">
+            <div class="brand-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="brand-text" style="color: white;">PULSE<span style="color: var(--primary);">FIT</span></div>
+          </div>
+          <p>An integrated Gym &amp; Fitness Center Management System automating enrollments, attendance tracking, trainer schedules, and fee invoices.</p>
+          <div class="academic-badge">Fitness Hub &bull; B.Tech CSE Mini Project</div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">&bull; Home</a></li>
+            <li><a href="about.html">&bull; About &amp; Facilities</a></li>
+            <li><a href="memberships.html">&bull; Membership Plans</a></li>
+            <li><a href="trainers.html">&bull; Trainers &amp; Coaches</a></li>
+            <li><a href="workouts.html">&bull; Workouts &amp; Diet</a></li>
+            <li><a href="contact.html">&bull; Contact &amp; Trial Pass</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Management Modules</h4>
+          <ul class="footer-links">
+            <li><a href="admin-dashboard.html">&bull; Admin Dashboard</a></li>
+            <li><a href="members-list.html">&bull; Member Directory</a></li>
+            <li><a href="attendance.html">&bull; Attendance Tracker</a></li>
+            <li><a href="billing.html">&bull; Billing &amp; Invoices</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Facility Hours</h4>
+          <div class="footer-hours-list">
+            <div class="footer-hours-item">
+              <span>Monday &ndash; Friday</span>
+              <span>5:30 AM &ndash; 10:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Saturday</span>
+              <span>6:00 AM &ndash; 9:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Sunday</span>
+              <span>6:00 AM &ndash; 2:00 PM</span>
+            </div>
+          </div>
+          <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #94a3b8;">
+            <strong style="color: #f1f5f9;">Center Helpdesk:</strong> +91 (0565) 241-7000<br>
+            <strong style="color: #f1f5f9;">Email:</strong> helpdesk@pulsefit-center.in
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <div>&copy; 2026 PulseFit Gym &amp; Fitness Center Management System. All rights reserved.</div>
+        <div>Designed for B.Tech CSE Mini Project Evaluation</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
