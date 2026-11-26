@@ -1,198 +1,115 @@
-(() => {
-  const dashboardData = {
-    activeMembers: 1280,
-    checkInsToday: 248,
-    floorCapacity: 345,
-    monthlyCollections: 482000,
-    expiringRenewals: 34,
-    monthlyRevenue: [340000, 380000, 410000, 460000, 440000, 482000],
-    dailyRevenueWeights: [
-      13, 14, 15, 16, 14, 18, 19, 17, 15, 16,
-      14, 18, 20, 17, 16, 15, 19, 18, 17, 16,
-      15, 20, 18, 17, 19, 16, 18, 21, 20, 23
-    ]
-  };
+const data = {
+  members: 1280,
+  checkIns: 248,
+  capacity: 345,
+  collections: 482000,
+  renewals: 34,
+  months: [340000, 380000, 410000, 460000, 440000, 482000],
+  days: [11000, 13000, 14000, 15000, 13000, 17000, 18000, 16000, 14000, 15000,
+    13000, 17000, 19000, 16000, 15000, 14000, 18000, 17000, 16000, 15000,
+    14000, 19000, 17000, 16000, 18000, 15000, 17000, 20000, 19000, 21000]
+};
 
-  const numberFormat = new Intl.NumberFormat('en-IN');
-  const currencyFormat = new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0
-  });
-  const shortCurrencyFormat = new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    notation: 'compact',
-    maximumFractionDigits: 2
-  });
-  const monthFormat = new Intl.DateTimeFormat('en-IN', { month: 'short' });
-  const dayFormat = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'short' });
-  const dateTimeFormat = new Intl.DateTimeFormat('en-IN', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true
-  });
-  const timeFormat = new Intl.DateTimeFormat('en-IN', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: true
-  });
+const range = document.getElementById('revenue-range');
+const chart = document.getElementById('revenue-chart');
+const summary = document.getElementById('revenue-period-summary');
+const description = document.getElementById('revenue-description');
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const money = value => '\u20B9' + value.toLocaleString('en-IN');
+const lakhs = value => '\u20B9' + (value / 100000).toFixed(2) + 'L';
+const dateLabel = date => date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
 
+function updateClock() {
+  const now = new Date();
+  const hour = now.getHours();
+  const shift = hour < 12 ? 'Morning' : hour < 17 ? 'Afternoon' : 'Evening';
   const clock = document.getElementById('system-clock');
-  const rangeSelect = document.getElementById('revenue-range');
-  const chart = document.getElementById('revenue-chart');
-  const description = document.getElementById('revenue-description');
-  const periodSummary = document.getElementById('revenue-period-summary');
-  const updatedStatus = document.getElementById('dashboard-updated');
-  const refreshButton = document.getElementById('refresh-dashboard');
-  let refreshTimeout;
+  clock.textContent = now.toLocaleTimeString('en-IN') + ' | ' + shift + ' Lead';
+  clock.dateTime = now.toISOString();
+}
 
-  function formatLakhs(amount) {
-    return `\u20B9${(amount / 100000).toFixed(2)}L`;
-  }
+function getChartData() {
+  const today = new Date();
+  let labels = [];
+  let values = [];
+  let text;
+  let totalText;
 
-  function updateClock() {
-    const now = new Date();
-    const hour = now.getHours();
-    const shift = hour < 12 ? 'Morning' : hour < 17 ? 'Afternoon' : 'Evening';
-    clock.textContent = `${timeFormat.format(now)} | ${shift} Lead`;
-    clock.dateTime = now.toISOString();
-  }
-
-  function getMonthlyPoints(now) {
-    return dashboardData.monthlyRevenue.map((value, index) => {
-      const month = new Date(now.getFullYear(), now.getMonth() - 5 + index, 1);
-      return { label: monthFormat.format(month), value };
-    });
-  }
-
-  function getDailyRevenue() {
-    const totalWeight = dashboardData.dailyRevenueWeights.reduce((sum, weight) => sum + weight, 0);
-    const dailyValues = dashboardData.dailyRevenueWeights.map((weight) =>
-      Math.round(dashboardData.monthlyCollections * weight / totalWeight)
-    );
-    dailyValues[dailyValues.length - 1] +=
-      dashboardData.monthlyCollections - dailyValues.reduce((sum, value) => sum + value, 0);
-    return dailyValues;
-  }
-
-  function getDailyPoints(now, days) {
-    const values = getDailyRevenue().slice(-days);
-    return values.map((value, index) => {
-      const date = new Date(now.getFullYear(), now.getMonth(), now.getDate() - days + index + 1);
-      return { label: dayFormat.format(date), value };
-    });
-  }
-
-  function getThirtyDayPoints(now) {
-    const dailyValues = getDailyRevenue();
-    return Array.from({ length: 5 }, (_, index) => {
-      const start = index * 6;
-      const value = dailyValues.slice(start, start + 6).reduce((sum, amount) => sum + amount, 0);
-      const startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 29 + start);
-      const endDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 24 + start);
-      return {
-        label: `${dayFormat.format(startDate)} - ${dayFormat.format(endDate)}`,
-        value
-      };
-    });
-  }
-
-  function getChartView(now) {
-    switch (rangeSelect.value) {
-      case 'days7':
-        return {
-          points: getDailyPoints(now, 7),
-          description: 'Daily fee collections over the last 7 days.',
-          summary: 'Total collected in 7 days: '
-        };
-      case 'days30':
-        return {
-          points: getThirtyDayPoints(now),
-          description: 'Fee collections grouped by 6-day periods over the last 30 days.',
-          summary: 'Total collected in 30 days: '
-        };
-      default:
-        return {
-          points: getMonthlyPoints(now),
-          description: 'Consolidated fee collections over the last 6 months.',
-          summary: 'Total collected in 6 months: '
-        };
+  if (range.value === 'months') {
+    values = data.months;
+    for (let i = 0; i < values.length; i++) {
+      labels.push(monthNames[new Date(today.getFullYear(), today.getMonth() - 5 + i, 1).getMonth()]);
     }
+    text = 'Consolidated fee collections over the last 6 months.';
+    totalText = 'Total collected in 6 months: ';
+  } else if (range.value === 'days30') {
+    for (let start = 0; start < 30; start += 6) {
+      let total = 0;
+      for (let i = start; i < start + 6; i++) total += data.days[i];
+      values.push(total);
+      const from = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 29 + start);
+      const to = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 24 + start);
+      labels.push(dateLabel(from) + ' - ' + dateLabel(to));
+    }
+    text = 'Fee collections grouped by 6-day periods over the last 30 days.';
+    totalText = 'Total collected in 30 days: ';
+  } else {
+    values = data.days.slice(-7);
+    for (let i = 6; i >= 0; i--) {
+      labels.push(dateLabel(new Date(today.getFullYear(), today.getMonth(), today.getDate() - i)));
+    }
+    text = 'Daily fee collections over the last 7 days.';
+    totalText = 'Total collected in 7 days: ';
   }
 
-  function renderChart(now) {
-    const view = getChartView(now);
-    const highestValue = Math.max(...view.points.map((point) => point.value));
-    const total = view.points.reduce((sum, point) => sum + point.value, 0);
-    const fragment = document.createDocumentFragment();
+  return { labels, values, text, totalText };
+}
 
-    view.points.forEach((point, index) => {
-      const column = document.createElement('div');
-      column.className = 'chart-column';
+function renderChart() {
+  const chartData = getChartData();
+  let total = 0;
+  let highest = 0;
 
-      const bar = document.createElement('div');
-      bar.className = index === view.points.length - 1 ? 'chart-bar chart-bar-alt' : 'chart-bar';
-      bar.style.height = `${Math.max(8, point.value / highestValue * 92)}%`;
-      bar.setAttribute('aria-label', `${point.label}: ${currencyFormat.format(point.value)}`);
-
-      const tooltip = document.createElement('span');
-      tooltip.className = 'bar-tooltip';
-      tooltip.textContent = shortCurrencyFormat.format(point.value);
-      bar.appendChild(tooltip);
-
-      const label = document.createElement('span');
-      label.className = 'chart-label';
-      label.textContent = point.label;
-      column.append(bar, label);
-      fragment.appendChild(column);
-    });
-
-    chart.replaceChildren(fragment);
-    chart.setAttribute('role', 'img');
-    chart.setAttribute('aria-label', `${view.description} Total: ${currencyFormat.format(total)}.`);
-    description.textContent = view.description;
-    periodSummary.textContent = view.summary;
-    const totalValue = document.createElement('strong');
-    totalValue.textContent = rangeSelect.value === 'months' ? formatLakhs(total) : currencyFormat.format(total);
-    periodSummary.appendChild(totalValue);
+  for (let i = 0; i < chartData.values.length; i++) {
+    total += chartData.values[i];
+    if (chartData.values[i] > highest) highest = chartData.values[i];
   }
 
-  function renderDashboard() {
-    const now = new Date();
-    document.getElementById('active-members-value').textContent =
-      numberFormat.format(dashboardData.activeMembers);
-    document.getElementById('check-ins-value').textContent =
-      numberFormat.format(dashboardData.checkInsToday);
-    document.getElementById('capacity-value').textContent =
-      `\u2191 ${Math.round(dashboardData.checkInsToday / dashboardData.floorCapacity * 100)}% Floor Capacity`;
-    document.getElementById('collections-value').textContent =
-      formatLakhs(dashboardData.monthlyCollections);
-    document.getElementById('renewals-value').textContent =
-      numberFormat.format(dashboardData.expiringRenewals);
-    renderChart(now);
+  let bars = '';
+  for (let i = 0; i < chartData.values.length; i++) {
+    const value = chartData.values[i];
+    const height = Math.max(8, value / highest * 92);
+    const color = i === chartData.values.length - 1 ? 'chart-bar chart-bar-alt' : 'chart-bar';
+    const tooltip = value >= 100000 ? lakhs(value) : money(value);
+    bars += `<div class="chart-column"><div class="${color}" style="height:${height}%" aria-label="${chartData.labels[i]}: ${money(value)}"><span class="bar-tooltip">${tooltip}</span></div><span class="chart-label">${chartData.labels[i]}</span></div>`;
   }
 
-  function refreshDashboard() {
-    renderDashboard();
-    updateClock();
-    updatedStatus.textContent = `Sample data · refreshed ${dateTimeFormat.format(new Date())}`;
-    refreshButton.textContent = 'Updated';
-    refreshButton.disabled = true;
-    window.clearTimeout(refreshTimeout);
-    refreshTimeout = window.setTimeout(() => {
-      refreshButton.textContent = 'Refresh';
-      refreshButton.disabled = false;
-    }, 1000);
-  }
+  chart.innerHTML = bars;
+  chart.setAttribute('role', 'img');
+  chart.setAttribute('aria-label', chartData.text + ' Total: ' + money(total) + '.');
+  description.textContent = chartData.text;
+  summary.innerHTML = chartData.totalText + '<strong>' +
+    (range.value === 'months' ? lakhs(total) : money(total)) + '</strong>';
+}
 
-  rangeSelect.addEventListener('change', () => renderChart(new Date()));
-  refreshButton.addEventListener('click', refreshDashboard);
+function renderDashboard() {
+  document.getElementById('active-members-value').textContent = data.members.toLocaleString('en-IN');
+  document.getElementById('check-ins-value').textContent = data.checkIns.toLocaleString('en-IN');
+  document.getElementById('capacity-value').textContent =
+    '\u2191 ' + Math.round(data.checkIns / data.capacity * 100) + '% Floor Capacity';
+  document.getElementById('collections-value').textContent = lakhs(data.collections);
+  document.getElementById('renewals-value').textContent = data.renewals.toLocaleString('en-IN');
+  renderChart();
+}
+
+range.addEventListener('change', renderChart);
+document.getElementById('refresh-dashboard').addEventListener('click', function () {
   renderDashboard();
   updateClock();
-  window.setInterval(updateClock, 1000);
-})();
+  document.getElementById('dashboard-updated').textContent =
+    'Sample data - refreshed ' + new Date().toLocaleString('en-IN');
+});
+
+renderDashboard();
+updateClock();
+window.setInterval(updateClock, 1000);
