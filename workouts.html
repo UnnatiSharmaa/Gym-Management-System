@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout &amp; Nutrition Protocols | PulseFit Gym</title>
+  <meta name="description" content="Science-backed weekly workout routines, exercise set guides, and personalized macronutrient diet plans managed by PulseFit coaches.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Main Common Header & Navbar -->
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="brand-text">
+            PULSE<span>FIT</span>
+            <span class="brand-sub">Gym Management System</span>
+          </div>
+        </a>
+
+        <!-- Pure CSS Hamburger Toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+          <span class="hamburger-icon"></span>
+        </label>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About &amp; Facility</a>
+          <a href="memberships.html" class="nav-link">Plans &amp; Pricing</a>
+          <a href="trainers.html" class="nav-link">Trainers</a>
+          <a href="workouts.html" class="nav-link active">Workouts &amp; Diet</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+
+          <!-- System Portals Dropdown -->
+          <div class="nav-dropdown">
+            <span class="nav-link dropdown-toggle">
+              System Modules
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+            <div class="dropdown-menu">
+              <div class="dropdown-header">Staff &amp; Admin Tools</div>
+              <a href="admin-dashboard.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                Admin Dashboard
+              </a>
+              <a href="members-list.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                Member Directory
+              </a>
+              <a href="attendance.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                Attendance Tracker
+              </a>
+              <a href="billing.html" class="dropdown-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+                Billing &amp; Invoices
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <a href="contact.html" class="btn btn-outline-primary btn-sm">Free Trial Pass</a>
+          <a href="admin-dashboard.html" class="btn btn-primary btn-sm">Portal Login</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="banner-content">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Workouts &amp; Diet</span>
+        </nav>
+        <h1 class="banner-title">Training Splits &amp; Nutrition Guidelines</h1>
+        <p class="banner-desc">
+          Systematic exercise routines designed to maximize muscular hypertrophy, core strength, and metabolic conditioning, paired with balanced macronutrient meal structures.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="page-wrapper">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-badge">Weekly Periodization</span>
+        <h2 class="section-title">6-Day Muscle Group Splits</h2>
+        <p class="section-desc">Click on any training day below to review the specific exercise routine, target reps, and rest periods.</p>
+      </div>
+
+      <!-- Pure CSS Tabs for Daily Workout Routine (Zero JS) -->
+      <div class="pure-tabs">
+        
+        <!-- Tab Radios -->
+        <input type="radio" name="workout-day" id="tab-mon" checked>
+        <input type="radio" name="workout-day" id="tab-tue">
+        <input type="radio" name="workout-day" id="tab-wed">
+        <input type="radio" name="workout-day" id="tab-thu">
+        <input type="radio" name="workout-day" id="tab-fri">
+        <input type="radio" name="workout-day" id="tab-sat">
+
+        <!-- Tab Navigation Bar -->
+        <div class="tab-nav">
+          <label for="tab-mon" class="tab-label">Mon: Push Day</label>
+          <label for="tab-tue" class="tab-label">Tue: Pull Day</label>
+          <label for="tab-wed" class="tab-label">Wed: Leg Day</label>
+          <label for="tab-thu" class="tab-label">Thu: Core &amp; HIIT</label>
+          <label for="tab-fri" class="tab-label">Fri: Upper Hypertrophy</label>
+          <label for="tab-sat" class="tab-label">Sat: Athletic Functional</label>
+        </div>
+
+        <!-- Tab Content Panels -->
+        <div class="tab-content">
+          
+          <!-- Monday: Push Day -->
+          <div id="content-mon" class="tab-content-panel">
+            <div class="card" style="margin-bottom: 2rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.35rem; color: var(--secondary);">Monday: Chest, Deltoids &amp; Triceps</h3>
+                  <p style="font-size: 0.875rem; color: var(--text-muted);">Focus: Primary horizontal/vertical presses with triceps lockout volume.</p>
+                </div>
+                <span class="badge badge-primary">High Intensity</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Exercise Movement</th>
+                      <th>Target Muscle</th>
+                      <th>Sets &times; Reps</th>
+                      <th>Rest Interval</th>
+                      <th>Trainer Cue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td><strong>Barbell Flat Bench Press</strong></td>
+                      <td>Pectoralis Major</td>
+                      <td>4 &times; 8-10 reps</td>
+                      <td>90 - 120 sec</td>
+                      <td>Keep scapula retracted and feet firmly planted.</td>
+                    </tr>
+                    <tr>
+                      <td>02</td>
+                      <td><strong>Incline Dumbbell Press</strong></td>
+                      <td>Clavicular Head (Upper Chest)</td>
+                      <td>4 &times; 10-12 reps</td>
+                      <td>75 - 90 sec</td>
+                      <td>30-degree incline, control lowering tempo (2s).</td>
+                    </tr>
+                    <tr>
+                      <td>03</td>
+                      <td><strong>Standing Overhead Barbell Press</strong></td>
+                      <td>Anterior Deltoids</td>
+                      <td>3 &times; 8-10 reps</td>
+                      <td>90 sec</td>
+                      <td>Engage core tight, avoid excessive lumbar arching.</td>
+                    </tr>
+                    <tr>
+                      <td>04</td>
+                      <td><strong>Cable Lateral Raises</strong></td>
+                      <td>Lateral Deltoids</td>
+                      <td>4 &times; 12-15 reps</td>
+                      <td>60 sec</td>
+                      <td>Lead with elbows slightly forward in the scapular plane.</td>
+                    </tr>
+                    <tr>
+                      <td>05</td>
+                      <td><strong>Parallel Bar Bodyweight Dips</strong></td>
+                      <td>Lower Chest &amp; Triceps</td>
+                      <td>3 &times; 10-12 reps</td>
+                      <td>75 sec</td>
+                      <td>Lean torso slightly forward for deeper chest stretch.</td>
+                    </tr>
+                    <tr>
+                      <td>06</td>
+                      <td><strong>Rope Triceps Pushdowns</strong></td>
+                      <td>Triceps Brachii (Lateral Head)</td>
+                      <td>4 &times; 12-15 reps</td>
+                      <td>60 sec</td>
+                      <td>Spread ropes at lockout and squeeze triceps for 1s.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tuesday: Pull Day -->
+          <div id="content-tue" class="tab-content-panel">
+            <div class="card" style="margin-bottom: 2rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.35rem; color: var(--secondary);">Tuesday: Back, Posterior Chain &amp; Biceps</h3>
+                  <p style="font-size: 0.875rem; color: var(--text-muted);">Focus: Latissimus dorsi thickness, rhomboid retraction, and elbow flexor peak.</p>
+                </div>
+                <span class="badge badge-accent">Strength Focus</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Exercise Movement</th>
+                      <th>Target Muscle</th>
+                      <th>Sets &times; Reps</th>
+                      <th>Rest Interval</th>
+                      <th>Trainer Cue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td><strong>Conventional Deadlifts</strong></td>
+                      <td>Erector Spinae &amp; Hamstrings</td>
+                      <td>4 &times; 6-8 reps</td>
+                      <td>120 - 150 sec</td>
+                      <td>Brace core, push the floor away, maintain neutral spine.</td>
+                    </tr>
+                    <tr>
+                      <td>02</td>
+                      <td><strong>Wide-Grip Lat Pulldowns</strong></td>
+                      <td>Latissimus Dorsi</td>
+                      <td>4 &times; 10-12 reps</td>
+                      <td>75 sec</td>
+                      <td>Drive elbows downwards towards your back pockets.</td>
+                    </tr>
+                    <tr>
+                      <td>03</td>
+                      <td><strong>Bent-Over Barbell Rows</strong></td>
+                      <td>Mid-Back &amp; Rhomboids</td>
+                      <td>4 &times; 8-10 reps</td>
+                      <td>90 sec</td>
+                      <td>Torso at 45 degrees, pull barbell towards belly button.</td>
+                    </tr>
+                    <tr>
+                      <td>04</td>
+                      <td><strong>Single-Arm Dumbbell Rows</strong></td>
+                      <td>Unilateral Lats</td>
+                      <td>3 &times; 10-12 reps</td>
+                      <td>60 sec</td>
+                      <td>Full stretch at bottom without twisting torso.</td>
+                    </tr>
+                    <tr>
+                      <td>05</td>
+                      <td><strong>EZ-Bar Biceps Curls</strong></td>
+                      <td>Biceps Brachii</td>
+                      <td>4 &times; 10-12 reps</td>
+                      <td>60 sec</td>
+                      <td>Pin elbows to your sides, avoid momentum swings.</td>
+                    </tr>
+                    <tr>
+                      <td>06</td>
+                      <td><strong>Incline Dumbbell Hammer Curls</strong></td>
+                      <td>Brachialis &amp; Forearms</td>
+                      <td>3 &times; 12 reps</td>
+                      <td>60 sec</td>
+                      <td>Neutral grip palms facing inward for forearm thickness.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wednesday: Leg Day -->
+          <div id="content-wed" class="tab-content-panel">
+            <div class="card" style="margin-bottom: 2rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.35rem; color: var(--secondary);">Wednesday: Quads, Hamstrings &amp; Calves</h3>
+                  <p style="font-size: 0.875rem; color: var(--text-muted);">Focus: Compound knee flexion, hip hinging, and explosive calf power.</p>
+                </div>
+                <span class="badge badge-warning">High Calorie Burn</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Exercise Movement</th>
+                      <th>Target Muscle</th>
+                      <th>Sets &times; Reps</th>
+                      <th>Rest Interval</th>
+                      <th>Trainer Cue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td><strong>Barbell Back Squats</strong></td>
+                      <td>Quadriceps &amp; Glutes</td>
+                      <td>4 &times; 8-10 reps</td>
+                      <td>120 sec</td>
+                      <td>Descend below parallel with knees tracking over toes.</td>
+                    </tr>
+                    <tr>
+                      <td>02</td>
+                      <td><strong>Romanian Deadlifts (RDL)</strong></td>
+                      <td>Hamstrings &amp; Gluteus</td>
+                      <td>4 &times; 10-12 reps</td>
+                      <td>90 sec</td>
+                      <td>Hinge at hips, push pelvis backward until hamstring stretch.</td>
+                    </tr>
+                    <tr>
+                      <td>03</td>
+                      <td><strong>45-Degree Leg Press</strong></td>
+                      <td>Quads &amp; Adductors</td>
+                      <td>4 &times; 12-15 reps</td>
+                      <td>90 sec</td>
+                      <td>Do not lock out knees forcefully at top of the movement.</td>
+                    </tr>
+                    <tr>
+                      <td>04</td>
+                      <td><strong>Walking Dumbbell Lunges</strong></td>
+                      <td>Unilateral Stability</td>
+                      <td>3 &times; 12 steps/leg</td>
+                      <td>75 sec</td>
+                      <td>Keep chest upright and take equal 90-degree strides.</td>
+                    </tr>
+                    <tr>
+                      <td>05</td>
+                      <td><strong>Lying Hamstring Leg Curls</strong></td>
+                      <td>Hamstring Biceps Femoris</td>
+                      <td>4 &times; 12-15 reps</td>
+                      <td>60 sec</td>
+                      <td>Control eccentric lowering over 3 full seconds.</td>
+                    </tr>
+                    <tr>
+                      <td>06</td>
+                      <td><strong>Standing Calf Raises</strong></td>
+                      <td>Gastrocnemius</td>
+                      <td>4 &times; 15-20 reps</td>
+                      <td>45 sec</td>
+                      <td>Pause 1s at deep bottom stretch and 1s at top peak.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thursday: Core & HIIT -->
+          <div id="content-thu" class="tab-content-panel">
+            <div class="card" style="margin-bottom: 2rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.35rem; color: var(--secondary);">Thursday: Core Stabilization &amp; High-Intensity Cardio</h3>
+                  <p style="font-size: 0.875rem; color: var(--text-muted);">Focus: Abdominal bracing, rotational strength, and VO2 Max enhancement.</p>
+                </div>
+                <span class="badge badge-primary">Endurance</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Exercise Movement</th>
+                      <th>Target Area</th>
+                      <th>Work / Rest</th>
+                      <th>Sets</th>
+                      <th>Trainer Cue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td><strong>Hanging Knee / Leg Raises</strong></td>
+                      <td>Lower Rectus Abdominis</td>
+                      <td>12 - 15 reps</td>
+                      <td>4 sets</td>
+                      <td>Curl pelvis upward; avoid body swing or kickbacks.</td>
+                    </tr>
+                    <tr>
+                      <td>02</td>
+                      <td><strong>Russian Twists with Med Ball</strong></td>
+                      <td>Internal &amp; External Obliques</td>
+                      <td>20 total twists</td>
+                      <td>4 sets</td>
+                      <td>Keep heels elevated and rotate ribs across midline.</td>
+                    </tr>
+                    <tr>
+                      <td>03</td>
+                      <td><strong>Ab-Wheel Rollouts</strong></td>
+                      <td>Deep Core &amp; Transverse Abs</td>
+                      <td>10 - 12 reps</td>
+                      <td>3 sets</td>
+                      <td>Tuck tailbone under, do not let lower back sag down.</td>
+                    </tr>
+                    <tr>
+                      <td>04</td>
+                      <td><strong>Concept2 Rower Sprints</strong></td>
+                      <td>Full Body Metabolic</td>
+                      <td>45s sprint / 45s rest</td>
+                      <td>6 rounds</td>
+                      <td>Drive with legs first, lean back, then pull arms to chest.</td>
+                    </tr>
+                    <tr>
+                      <td>05</td>
+                      <td><strong>Battle Rope Waves &amp; Slams</strong></td>
+                      <td>Shoulders &amp; Stamina</td>
+                      <td>30s work / 30s rest</td>
+                      <td>5 rounds</td>
+                      <td>Maintain quarter-squat athletic stance throughout.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Friday: Upper Body Hypertrophy -->
+          <div id="content-fri" class="tab-content-panel">
+            <div class="card" style="margin-bottom: 2rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.35rem; color: var(--secondary);">Friday: Upper Body Volume &amp; Sculpting</h3>
+                  <p style="font-size: 0.875rem; color: var(--text-muted);">Focus: Controlled pump sets for chest, upper lats, side shoulders, and arms.</p>
+                </div>
+                <span class="badge badge-success">Hypertrophy</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Exercise Movement</th>
+                      <th>Target Muscle</th>
+                      <th>Sets &times; Reps</th>
+                      <th>Rest</th>
+                      <th>Trainer Cue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td><strong>Incline Machine Chest Press</strong></td>
+                      <td>Upper Chest</td>
+                      <td>4 &times; 10-12 reps</td>
+                      <td>75 sec</td>
+                      <td>Continuous tension, avoid locking out triceps.</td>
+                    </tr>
+                    <tr>
+                      <td>02</td>
+                      <td><strong>Seated Cable Rows (V-Bar)</strong></td>
+                      <td>Mid Trapezius &amp; Lats</td>
+                      <td>4 &times; 10-12 reps</td>
+                      <td>75 sec</td>
+                      <td>Pull to navel, squeeze shoulder blades together for 1s.</td>
+                    </tr>
+                    <tr>
+                      <td>03</td>
+                      <td><strong>Dumbbell Arnold Press</strong></td>
+                      <td>Anterior &amp; Side Delts</td>
+                      <td>3 &times; 10 reps</td>
+                      <td>75 sec</td>
+                      <td>Smooth rotation from chest up over your head.</td>
+                    </tr>
+                    <tr>
+                      <td>04</td>
+                      <td><strong>Cable Face Pulls</strong></td>
+                      <td>Rear Deltoids &amp; Rotator Cuff</td>
+                      <td>4 &times; 15 reps</td>
+                      <td>60 sec</td>
+                      <td>Pull rope towards eye level, externally rotate wrists.</td>
+                    </tr>
+                    <tr>
+                      <td>05</td>
+                      <td><strong>Preacher Curl (Machine or Bar)</strong></td>
+                      <td>Biceps Short Head</td>
+                      <td>3 &times; 12 reps</td>
+                      <td>60 sec</td>
+                      <td>Full stretch at bottom; don't lift elbows off pad.</td>
+                    </tr>
+                    <tr>
+                      <td>06</td>
+                      <td><strong>Overhead Cable Triceps Extension</strong></td>
+                      <td>Triceps Long Head</td>
+                      <td>3 &times; 12-15 reps</td>
+                      <td>60 sec</td>
+                      <td>Keep elbows tucked forward, deep overhead stretch.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saturday: Functional & Turf -->
+          <div id="content-sat" class="tab-content-panel">
+            <div class="card" style="margin-bottom: 2rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.35rem; color: var(--secondary);">Saturday: Athletic Conditioning &amp; Turf Drills</h3>
+                  <p style="font-size: 0.875rem; color: var(--text-muted);">Focus: Sled pushes, unilateral balance, joint mobility, and stamina.</p>
+                </div>
+                <span class="badge badge-accent">Functional</span>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Exercise Movement</th>
+                      <th>Target Zone</th>
+                      <th>Volume</th>
+                      <th>Rest</th>
+                      <th>Trainer Cue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td><strong>Weighted Prowler Sled Push</strong></td>
+                      <td>Quads, Glutes &amp; Heart Rate</td>
+                      <td>5 &times; 30-meter pushes</td>
+                      <td>90 sec</td>
+                      <td>Drive through the balls of your feet with straight arms.</td>
+                    </tr>
+                    <tr>
+                      <td>02</td>
+                      <td><strong>Kettlebell Goblet Squats</strong></td>
+                      <td>Hips, Adductors &amp; Core</td>
+                      <td>4 &times; 12 reps</td>
+                      <td>60 sec</td>
+                      <td>Hold bell at chest height; keep elbows inside knees.</td>
+                    </tr>
+                    <tr>
+                      <td>03</td>
+                      <td><strong>Farmer's Walk (Heavy Dumbbells)</strong></td>
+                      <td>Grip, Traps &amp; Core Carry</td>
+                      <td>4 &times; 40-meter walks</td>
+                      <td>75 sec</td>
+                      <td>Keep shoulders retracted and steps small and steady.</td>
+                    </tr>
+                    <tr>
+                      <td>04</td>
+                      <td><strong>Plyometric Box Jumps</strong></td>
+                      <td>Explosive Leg Power</td>
+                      <td>4 &times; 8 jumps</td>
+                      <td>60 sec</td>
+                      <td>Land softly in a quarter squat, stand tall, step down.</td>
+                    </tr>
+                    <tr>
+                      <td>05</td>
+                      <td><strong>Foam Rolling &amp; Hip Mobility Drills</strong></td>
+                      <td>Full Body Recovery</td>
+                      <td>15 minutes continuous</td>
+                      <td>None</td>
+                      <td>Target IT bands, thoracic spine, and hip flexors.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Nutrition & Caloric Diet Protocol -->
+      <div style="margin-top: 4.5rem; margin-bottom: 5rem;">
+        <div class="section-header">
+          <span class="section-badge">Fuel Your Performance</span>
+          <h2 class="section-title">Sports Nutrition &amp; Macro Guidelines</h2>
+          <p class="section-desc">Sample balanced daily nutritional framework recommended by PulseFit clinical dietitians.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          
+          <!-- Meal 1 & 2 -->
+          <div class="card">
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+              <span class="badge badge-primary">Morning Fuel</span>
+              <h4 style="font-size: 1.15rem; color: var(--secondary); margin-top: 0.5rem;">Pre-Workout &amp; Breakfast</h4>
+            </div>
+            <div style="font-size: 0.9rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.85rem;">
+              <div>
+                <strong>Pre-Workout (6:30 AM):</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  1 Banana + 1 cup Black Coffee or Green Tea + 5g BCAA or a handful of almonds.
+                </p>
+              </div>
+              <div style="border-top: 1px dashed var(--border-color); padding-top: 0.75rem;">
+                <strong>Power Breakfast (8:30 AM):</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  3 whole eggs or 150g low-fat Paneer bhurji + 2 slices multigrain toast or 1 bowl rolled oats with chia seeds.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Meal 3 & 4 -->
+          <div class="card">
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+              <span class="badge badge-accent">Midday Recovery</span>
+              <h4 style="font-size: 1.15rem; color: var(--secondary); margin-top: 0.5rem;">Lunch &amp; Post-Workout</h4>
+            </div>
+            <div style="font-size: 0.9rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.85rem;">
+              <div>
+                <strong>Wholesome Lunch (1:30 PM):</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  150g grilled chicken breast or 1.5 cups yellow dal / tofu + 1 cup brown rice or 2 rotis + cucumber salad.
+                </p>
+              </div>
+              <div style="border-top: 1px dashed var(--border-color); padding-top: 0.75rem;">
+                <strong>Evening Snack (5:00 PM):</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  1 scoop Whey Isolate or Sattu drink + roasted chana or 1 apple with 1 tbsp peanut butter.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Meal 5 & Hydration -->
+          <div class="card">
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+              <span class="badge badge-success">Night Rest</span>
+              <h4 style="font-size: 1.15rem; color: var(--secondary); margin-top: 0.5rem;">Dinner &amp; Hydration Target</h4>
+            </div>
+            <div style="font-size: 0.9rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.85rem;">
+              <div>
+                <strong>Light Dinner (8:30 PM):</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  Steamed fish fillet or stir-fried soy chunks &amp; broccoli + 1 light roti or quinoa bowl with curd.
+                </p>
+              </div>
+              <div style="border-top: 1px dashed var(--border-color); padding-top: 0.75rem;">
+                <strong>Daily Hydration Target:</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  Minimum 3.5 &ndash; 4.0 Liters of fresh water distributed evenly across the waking hours.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: white;">
+            <div class="brand-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="brand-text" style="color: white;">PULSE<span style="color: var(--primary);">FIT</span></div>
+          </div>
+          <p>An integrated Gym &amp; Fitness Center Management System automating enrollments, attendance tracking, trainer schedules, and fee invoices.</p>
+          <div class="academic-badge">Fitness Hub &bull; B.Tech CSE Mini Project</div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">&bull; Home</a></li>
+            <li><a href="about.html">&bull; About &amp; Facilities</a></li>
+            <li><a href="memberships.html">&bull; Membership Plans</a></li>
+            <li><a href="trainers.html">&bull; Trainers &amp; Coaches</a></li>
+            <li><a href="workouts.html">&bull; Workouts &amp; Diet</a></li>
+            <li><a href="contact.html">&bull; Contact &amp; Trial Pass</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Management Modules</h4>
+          <ul class="footer-links">
+            <li><a href="admin-dashboard.html">&bull; Admin Dashboard</a></li>
+            <li><a href="members-list.html">&bull; Member Directory</a></li>
+            <li><a href="attendance.html">&bull; Attendance Tracker</a></li>
+            <li><a href="billing.html">&bull; Billing &amp; Invoices</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Facility Hours</h4>
+          <div class="footer-hours-list">
+            <div class="footer-hours-item">
+              <span>Monday &ndash; Friday</span>
+              <span>5:30 AM &ndash; 10:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Saturday</span>
+              <span>6:00 AM &ndash; 9:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Sunday</span>
+              <span>6:00 AM &ndash; 2:00 PM</span>
+            </div>
+          </div>
+          <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #94a3b8;">
+            <strong style="color: #f1f5f9;">Center Helpdesk:</strong> +91 (0565) 241-7000<br>
+            <strong style="color: #f1f5f9;">Email:</strong> helpdesk@pulsefit-center.in
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <div>&copy; 2026 PulseFit Gym &amp; Fitness Center Management System. All rights reserved.</div>
+        <div>Designed for B.Tech CSE Mini Project Evaluation</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
