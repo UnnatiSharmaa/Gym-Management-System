@@ -7,6 +7,7 @@
   <meta name="description" content="Centralized administrative dashboard for gym owners: live attendance trends, active membership counts, revenue analytics, and member management.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
+  <script src="js/admin-dashboard.js" defer></script>
 </head>
 <body>
 
@@ -20,7 +21,7 @@
         </span>
         <span class="topbar-item">
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          System Server Time: 02:30 PM | Shift: Evening Lead
+          System Server Time: <time id="system-clock">--</time>
         </span>
       </div>
       <div class="topbar-right">
@@ -131,7 +132,7 @@
         <div class="stat-card">
           <div class="stat-info">
             <span class="stat-label">Total Active Members</span>
-            <span class="stat-value">1,280</span>
+            <span class="stat-value" id="active-members-value">1,280</span>
             <span class="stat-trend positive">&uarr; +8.4% from last month</span>
           </div>
           <div class="stat-icon-wrapper">
@@ -143,8 +144,8 @@
         <div class="stat-card accent-blue">
           <div class="stat-info">
             <span class="stat-label">Today's Check-ins</span>
-            <span class="stat-value">248</span>
-            <span class="stat-trend positive">&uarr; 72% Floor Capacity</span>
+            <span class="stat-value" id="check-ins-value">248</span>
+            <span class="stat-trend positive" id="capacity-value">&uarr; 72% Floor Capacity</span>
           </div>
           <div class="stat-icon-wrapper">
             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
@@ -155,7 +156,7 @@
         <div class="stat-card accent-green">
           <div class="stat-info">
             <span class="stat-label">Monthly Collections</span>
-            <span class="stat-value">&#8377;4.82L</span>
+            <span class="stat-value" id="collections-value">&#8377;4.82L</span>
             <span class="stat-trend positive">&uarr; 92.7% of Goal</span>
           </div>
           <div class="stat-icon-wrapper">
@@ -167,7 +168,7 @@
         <div class="stat-card accent-amber">
           <div class="stat-info">
             <span class="stat-label">Expiring Renewals</span>
-            <span class="stat-value">34</span>
+            <span class="stat-value" id="renewals-value">34</span>
             <span class="stat-trend warning">&bull; Overdue: &#8377;84,900</span>
           </div>
           <div class="stat-icon-wrapper">
@@ -177,20 +178,28 @@
 
       </div>
 
-      <!-- Analytics Row: Pure CSS Revenue Bar Chart & Floor Occupancy -->
-      <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+      <!-- Analytics Row: Revenue Chart & Floor Occupancy -->
+      <div class="dashboard-analytics-grid">
         
-        <!-- Pure CSS Bar Chart (Zero JS) -->
+        <!-- Revenue Chart -->
         <div class="chart-container">
           <div class="card-header">
             <div>
-              <h3 class="card-title">Monthly Revenue Trend (in Lakhs INR)</h3>
-              <p style="font-size: 0.8125rem; color: var(--text-muted);">Consolidated fee collections over the last 6 operational months.</p>
+              <h3 class="card-title">Revenue Trend</h3>
+              <p id="revenue-description" style="font-size: 0.8125rem; color: var(--text-muted);">Consolidated fee collections over the last 6 months.</p>
             </div>
-            <span class="badge badge-success">&#8377;48.2L Annualized</span>
+            <div class="dashboard-chart-actions">
+              <label class="sr-only" for="revenue-range">Revenue chart time range</label>
+              <select class="form-select dashboard-range-select" id="revenue-range">
+                <option value="months">Last 6 months</option>
+                <option value="days30">Last 30 days</option>
+                <option value="days7">Last 7 days</option>
+              </select>
+              <button class="btn btn-outline btn-sm" id="refresh-dashboard" type="button">Refresh</button>
+            </div>
           </div>
 
-          <div class="css-bar-chart">
+          <div class="css-bar-chart" id="revenue-chart" aria-label="Revenue chart">
             <div class="chart-column">
               <div class="chart-bar" style="height: 58%;">
                 <span class="bar-tooltip">&#8377;3.4L</span>
@@ -235,8 +244,8 @@
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; font-size: 0.85rem; color: var(--text-muted);">
-            <span>Average monthly growth: <strong>+6.8%</strong></span>
-            <span>Target for April 2026: <strong>&#8377;5.20 Lakhs</strong></span>
+            <span id="revenue-period-summary">Average monthly growth: <strong>+6.8%</strong></span>
+            <span id="dashboard-updated" role="status">Sample dashboard data</span>
           </div>
         </div>
 
